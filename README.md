@@ -1,2 +1,2 @@
 # RacingGame
-final project for Sam Blackwood and Cole Kisicki
+Final project for Sam Blackwood and Cole Kisicki
