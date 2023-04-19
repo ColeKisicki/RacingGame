@@ -12,4 +12,9 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("LeaderboardScene");
     }
+
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("SettingsScene");
+    }
 }
