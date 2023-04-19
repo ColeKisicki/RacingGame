@@ -8,6 +8,11 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void LoadEditVehicleScene()
+    {
+        SceneManager.LoadScene("EditVehicleScene");
+    }
+
     public void LoadLeaderboard()
     {
         SceneManager.LoadScene("LeaderboardScene");
