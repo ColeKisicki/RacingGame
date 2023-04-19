@@ -7,4 +7,9 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void LoadLeaderboard()
+    {
+        SceneManager.LoadScene("LeaderboardScene");
+    }
 }
