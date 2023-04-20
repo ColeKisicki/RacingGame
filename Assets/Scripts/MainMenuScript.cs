@@ -5,7 +5,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void LoadSampleScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("RaceScene");
     }
 
     public void LoadEditVehicleScene()
