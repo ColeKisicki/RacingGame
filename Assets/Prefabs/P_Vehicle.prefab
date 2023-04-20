@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2007157094901461453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5641055147285114525}
+  - component: {fileID: 1806877501922940085}
+  - component: {fileID: 1298346731417156163}
+  m_Layer: 0
+  m_Name: P_Vehicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5641055147285114525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007157094901461453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4395652, y: -2.7653112, z: -3.2906203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806877501922940085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007157094901461453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35874ad531bb1a54ca201607fe05b6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleBody: {fileID: 11400000, guid: 1916625e33e083545bca50a57f83ad65, type: 2}
+  wheel: {fileID: 11400000, guid: e0338d5e29de7794ea63e1d34233cd4a, type: 2}
+  engine: {fileID: 11400000, guid: 67dca5645f7ee2844a3066ffe684cb87, type: 2}
+  frontRightCollider: {fileID: 0}
+  frontLeftCollider: {fileID: 0}
+  rearRightCollider: {fileID: 0}
+  rearLeftCollider: {fileID: 0}
+  frontRightTransform: {fileID: 0}
+  frontLeftTransform: {fileID: 0}
+  rearRightTransform: {fileID: 0}
+  rearLeftTransform: {fileID: 0}
+--- !u!114 &1298346731417156163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007157094901461453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a35b03b3566254ea65632bd3d3ec60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motorTorque: 500
+  maxSteerAngle: 30
+  brakeTorque: 500
+  drive: 2

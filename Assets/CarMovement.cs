@@ -3,14 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum DriveType : short
-{
-    FWD,
-    RWD,
-    AWD
-};
-
 [RequireComponent(typeof(Rigidbody))]
 public class CarMovement : MonoBehaviour
 {
