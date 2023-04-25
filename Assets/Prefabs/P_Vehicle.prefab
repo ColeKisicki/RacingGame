@@ -71,4 +71,4 @@ MonoBehaviour:
   motorTorque: 500
   maxSteerAngle: 30
   brakeTorque: 500
-  drive: 2
+  drive: 1

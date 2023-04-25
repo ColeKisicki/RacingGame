@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestVehicleCreator : MonoBehaviour
@@ -15,12 +16,8 @@ public class TestVehicleCreator : MonoBehaviour
 
     private void CreateTestVehicle()
     {
-        GameObject vehicleInstance = Instantiate(vehiclePrefab, transform.position, transform.rotation);
-        Vehicle customizableVehicle = vehicleInstance.GetComponent<Vehicle>();
+        VehicleBuilder builder = this.AddComponent<VehicleBuilder>();
+        builder.SetWheels(testWheel).SetBody(testBody).SetEngine(testEngine).Build();
 
-        customizableVehicle.vehicleBody = testBody;
-        customizableVehicle.wheel = testWheel;
-        customizableVehicle.engine = testEngine;
-        
     }
 }

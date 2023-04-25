@@ -51,6 +51,8 @@ public class Vehicle : MonoBehaviour
         rearLeftCollider = rearLeftWheelInstance.GetComponent<WheelCollider>();
         rearLeftCollider.enabled = true;
 
+        GameState.GetGameState()._playerVehicleRef = this;
+
     }
     
     void GetWheelPositions(GameObject bodyInstance)

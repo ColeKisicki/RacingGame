@@ -13,7 +13,7 @@ public class VehicleController : MonoBehaviour
     private Vehicle _vehicle;
 
     [SerializeField] public float motorTorque = 500f;
-    [SerializeField] public float maxSteerAngle = 30f;
+    [SerializeField] public float maxSteerAngle = 45f;
     [SerializeField] public float brakeTorque = 500f;
     [SerializeField] public DriveType drive = DriveType.AWD;
     private bool _wheelsInitailized;
@@ -24,6 +24,7 @@ public class VehicleController : MonoBehaviour
     {
         _wheelsInitailized = false;
         _vehicle = GetComponent<Vehicle>();
+        //subscribing to vehicle built event
         _vehicle.OnVehicleBuilt += OnVehicleBuilt;
     }
     
