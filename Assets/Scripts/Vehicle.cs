@@ -8,6 +8,7 @@ public class Vehicle : MonoBehaviour
     public VehicleEngine engine;
     
     public event Action OnVehicleBuilt;
+    public GameObject bodyInstance;
     
     public WheelCollider frontRightCollider;
     public WheelCollider frontLeftCollider;
@@ -22,7 +23,7 @@ public class Vehicle : MonoBehaviour
     private void BuildVehicle()
     {
         // Instantiate body and set weight
-        GameObject bodyInstance = Instantiate(vehicleBody.bodyPrefab, transform);
+        bodyInstance = Instantiate(vehicleBody.bodyPrefab, transform);
         Rigidbody rb = bodyInstance.AddComponent<Rigidbody>();
         rb.mass = vehicleBody.weight;
 
@@ -50,8 +51,7 @@ public class Vehicle : MonoBehaviour
         //rearLeftTransform = rearLeftWheelInstance.transform;
         rearLeftCollider = rearLeftWheelInstance.GetComponent<WheelCollider>();
         rearLeftCollider.enabled = true;
-
-        GameState.GetGameState()._playerVehicleRef = this;
+        
 
     }
     

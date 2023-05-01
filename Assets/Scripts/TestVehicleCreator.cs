@@ -17,7 +17,7 @@ public class TestVehicleCreator : MonoBehaviour
     private void CreateTestVehicle()
     {
         VehicleBuilder builder = this.AddComponent<VehicleBuilder>();
-        builder.SetWheels(testWheel).SetBody(testBody).SetEngine(testEngine).Build();
+        Vehicle createdVehicle = builder.SetWheels(testWheel).SetBody(testBody).SetEngine(testEngine).Build();
 
     }
 }

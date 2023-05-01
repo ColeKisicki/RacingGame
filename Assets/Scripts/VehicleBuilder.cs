@@ -10,7 +10,7 @@ public class VehicleBuilder : MonoBehaviour
     
     private void Start()
     {
-        Build();
+        GameState.GetGameState()._playerVehicleRef = Build();
     }
     public VehicleBuilder SetWheels(VehicleWheel inWheel)
     {
