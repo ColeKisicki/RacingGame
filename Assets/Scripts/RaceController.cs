@@ -14,6 +14,7 @@ public class RaceController : MonoBehaviour
     private void Start()
     {
         raceStartTime = Time.time;
+        GameState.GetGameState().setRaceController(this);
     }
 
     private void Update()
@@ -23,12 +24,11 @@ public class RaceController : MonoBehaviour
             vehicleBody = GameState.GetGameState()._playerVehicleRef.bodyInstance;
         }
         elapsedTime = Time.time - raceStartTime;
-        GameState.GetGameState().elapsedTime = elapsedTime;
     }
 
     public void CheckpointReached(int checkpointIndex)
     {
-        
+        Debug.Log(currentCheckpointIndex);
         if (checkpointIndex == currentCheckpointIndex)
         {
             currentCheckpointIndex++;

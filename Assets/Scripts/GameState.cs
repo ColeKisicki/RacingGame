@@ -7,11 +7,26 @@ public class GameState
 
     private static GameState _gameStateRef = null;
     public Vehicle _playerVehicleRef = null;
-    public float elapsedTime = 0f;
-    public int LapNumber = 0;
+    private RaceController raceController;
     private GameState()
     {
         
+    }
+
+    public void setRaceController(RaceController rc)
+    {
+        raceController = rc;
+        return;
+    }
+
+    public int GetCurrentLapNumber()
+    {
+        return raceController.GetCurrentLap();
+    }
+    
+    public float GetElapsedTime()
+    {
+        return raceController.GetElapsedTime();
     }
     
     public static GameState GetGameState()
