@@ -1107,8 +1107,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1154167162}
-        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
-        m_MethodName: ReturnToMainMenu
+        m_TargetAssemblyTypeName: LoadMainMenu, Assembly-CSharp
+        m_MethodName: NavigateToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1165,10 +1165,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1154167157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997c7f09dbfab4478a7673c0fff64d66, type: 3}
+  m_Script: {fileID: 11500000, guid: bfc9a3bdb5cf043d1a4a60fa22a778ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DifficultySlider: {fileID: 0}
 --- !u!1 &1353911775
 GameObject:
   m_ObjectHideFlags: 0
