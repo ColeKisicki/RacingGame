@@ -1,15 +1,20 @@
+using System;
 using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceController : MonoBehaviour
 {
     [SerializeField] public GameObject vehicleBody;
-    [SerializeField] private int totalLaps = 3;
+    [SerializeField] private int totalLaps = 1;
 
     private int currentCheckpointIndex = 0;
     private int currentLap = 1;
     private float raceStartTime;
     private float elapsedTime;
+
+    public event Action<string, float> OnRaceOver = delegate { };
 
     private void Start()
     {
@@ -28,7 +33,7 @@ public class RaceController : MonoBehaviour
 
     public void CheckpointReached(int checkpointIndex)
     {
-        Debug.Log(currentCheckpointIndex);
+        Debug.Log("currentCheckpointIndex: " + currentCheckpointIndex);
         if (checkpointIndex == currentCheckpointIndex)
         {
             currentCheckpointIndex++;
@@ -39,8 +44,11 @@ public class RaceController : MonoBehaviour
                 Debug.Log("LAP");
                 if (currentLap > totalLaps)
                 {
-                    Debug.Log("Race finished!");
+                    Debug.Log("Race finished! Time: " + elapsedTime);
                     enabled = false;
+                    Invoke("NavigateToMainMenu", 10f);
+                    //OnRaceOver.Invoke("SAM", GetElapsedTime());
+                    GameState.GetGameState().currentLeaderboardEntry = new GameState.LeaderboardData { name = "SAM", time = (float)Math.Round(GetElapsedTime(), 2) };
                 }
             }
         }
@@ -54,5 +62,10 @@ public class RaceController : MonoBehaviour
     public float GetElapsedTime()
     {
         return elapsedTime;
+    }
+
+    public void NavigateToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
