@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum DriveType : short
@@ -15,8 +16,13 @@ public class VehicleController : MonoBehaviour
     [SerializeField] public float motorTorque = 500f;
     [SerializeField] public float maxSteerAngle = 45f;
     [SerializeField] public float brakeTorque = 500f;
+    [SerializeField] public float maxVelocity = 50f;
     [SerializeField] public DriveType drive = DriveType.AWD;
     private bool _wheelsInitailized;
+    private Rigidbody rbRef;
+    
+    //controller uses strategy to dertermine difficulty(max speed)
+    private IDifficultyStrategy _difficultyStrategy = new MediumDifficulty();
 
 
 
@@ -26,13 +32,23 @@ public class VehicleController : MonoBehaviour
         _vehicle = GetComponent<Vehicle>();
         //subscribing to vehicle built event
         _vehicle.OnVehicleBuilt += OnVehicleBuilt;
+        SetDifficultyStrategy(_difficultyStrategy);
+    }
+    
+    public void SetDifficultyStrategy(IDifficultyStrategy strategy)
+    {
+        _difficultyStrategy = strategy;
+        maxVelocity = _difficultyStrategy.AdjustMaxSpeed(maxVelocity);
     }
     
     private void OnVehicleBuilt()
     {
         _wheelsInitailized = true;
         motorTorque = _vehicle.engine.engineTorque;
+        maxVelocity = _vehicle.engine.maxSpeed;
         brakeTorque = _vehicle.wheel.brakeTorque;
+        rbRef = _vehicle.rbRef;
+        SetDifficultyStrategy(GameState.GetGameState().Difficulty);
     }
     
     // private void ApplyDrift(float horizontalInput, float verticalInput, bool brakeInput)
@@ -48,8 +64,15 @@ public class VehicleController : MonoBehaviour
         float throttle = Input.GetAxis("Vertical");
         float steer = Input.GetAxis("Horizontal");
         bool brake = Input.GetKey(KeyCode.Space);
-
+        
         if (!_wheelsInitailized) return;
+        
+        float currentSpeed = rbRef.velocity.magnitude;
+        if (currentSpeed > maxVelocity && throttle > 0)
+        {
+            throttle = 0;
+        }
+        
         
         Drive(throttle, steer, brake);
     }

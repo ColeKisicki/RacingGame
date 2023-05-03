@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c983f0f0ad86d6428a6dffc5d1d1fed, type: 3}
-  m_Name: SO_TestEngine
+  m_Name: SO_Inline4
   m_EditorClassIdentifier: 
-  engineName: TestEngine
-  maxSpeed: 150
-  engineTorque: 500
+  engineName: Inline4
+  maxSpeed: 100
+  engineTorque: 400

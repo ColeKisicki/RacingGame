@@ -415,8 +415,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1916625e33e083545bca50a57f83ad65, type: 2}
   wheelList:
   - {fileID: 11400000, guid: e0338d5e29de7794ea63e1d34233cd4a, type: 2}
+  - {fileID: 11400000, guid: 48fc2f9e8ad37e24bbe762f8ec94caba, type: 2}
   engineList:
   - {fileID: 11400000, guid: 67dca5645f7ee2844a3066ffe684cb87, type: 2}
+  - {fileID: 11400000, guid: f87300548af2f5144bf9e844ec2078cd, type: 2}
 --- !u!1 &85440499
 GameObject:
   m_ObjectHideFlags: 0

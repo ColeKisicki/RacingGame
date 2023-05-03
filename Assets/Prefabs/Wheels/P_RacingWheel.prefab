@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6364105339785880501}
   - component: {fileID: 5528618620770031700}
   m_Layer: 0
-  m_Name: P_TestWheel
+  m_Name: P_RacingWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

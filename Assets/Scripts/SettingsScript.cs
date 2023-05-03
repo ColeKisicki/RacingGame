@@ -9,7 +9,7 @@ public class SettingsScript : MonoBehaviour
     private void Start()
     {
         DifficultySlider.onValueChanged.AddListener((float v) => {
-            Debug.Log("v: " + v);
+            GameState.GetGameState().updateDifficulty((int)v);
         });
     }
 }

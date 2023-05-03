@@ -19,10 +19,22 @@ public class GameState
     public VehicleBody selectedBody;
     public VehicleWheel selectedWheel;
     public VehicleEngine selectedEngine;
+    public IDifficultyStrategy Difficulty = new MediumDifficulty();
 
     private GameState()
     {
         
+    }
+
+    public void updateDifficulty(int strategyIndex)
+    {
+        if (strategyIndex == 0)
+            Difficulty = new EasyDifficulty();
+        if (strategyIndex == 1)
+            Difficulty = new MediumDifficulty();
+        if (strategyIndex == 2)
+            Difficulty = new HardDifficulty();
+
     }
 
     public void setRaceController(RaceController rc)
