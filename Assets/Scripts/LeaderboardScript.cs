@@ -23,10 +23,8 @@ public class LeaderboardScript : MonoBehaviour
         // Subscribe to the OnRaceOver action in the RaceController
         //gameState.OnLeaderboardDataChanged += TestHandler;//AddScoreToLeaderboard;
 
-        //AddScoreToLeaderboard(gameState.currentLeaderboardEntry.name, gameState.currentLeaderboardEntry.time);
         foreach (GameState.LeaderboardData entry in GameState.GetGameState().scoresToAddToLeaderboard)
         {
-            Debug.Log("in foreach: " + entry.name + entry.time);
             AddScoreToLeaderboard(entry.name, entry.time);
         }
         // Clear the scoresToAddToLeaderboard list now that we have added all of the scores stored in it
