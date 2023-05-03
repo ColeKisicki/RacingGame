@@ -14,7 +14,7 @@ public class RaceController : MonoBehaviour
     private float raceStartTime;
     private float elapsedTime;
 
-    public event Action<string, float> OnRaceOver = delegate { };
+    //public event Action<string, float> OnRaceOver;
 
     private void Start()
     {
@@ -48,7 +48,7 @@ public class RaceController : MonoBehaviour
                     enabled = false;
                     Invoke("NavigateToMainMenu", 10f);
                     //OnRaceOver.Invoke("SAM", GetElapsedTime());
-                    GameState.GetGameState().currentLeaderboardEntry = new GameState.LeaderboardData { name = "SAM", time = (float)Math.Round(GetElapsedTime(), 2) };
+                    GameState.GetGameState().scoresToAddToLeaderboard.Add(new GameState.LeaderboardData { name = "SAM", time = (float)Math.Round(GetElapsedTime(), 2) });
                 }
             }
         }

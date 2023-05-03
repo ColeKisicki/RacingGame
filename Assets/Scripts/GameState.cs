@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class GameState
@@ -10,7 +12,8 @@ public class GameState
     private RaceController raceController;
     // Store this value for knowing if we need to take user to leaderboard upon completing race
     private float worstLeaderboardScore;
-    public LeaderboardData currentLeaderboardEntry = null;
+    public List<LeaderboardData> scoresToAddToLeaderboard = new List<LeaderboardData>();
+
     private GameState()
     {
         
@@ -40,11 +43,6 @@ public class GameState
         }
 
         return _gameStateRef;
-    }
-
-    public RaceController GetRaceController()
-    {
-        return raceController;
     }
 
     public class LeaderboardData
