@@ -13,6 +13,10 @@ public class GameState
     // Store this value for knowing if we need to take user to leaderboard upon completing race
     private float worstLeaderboardScore;
     public List<LeaderboardData> scoresToAddToLeaderboard = new List<LeaderboardData>();
+    
+    public VehicleBody selectedBody;
+    public VehicleWheel selectedWheel;
+    public VehicleEngine selectedEngine;
 
     private GameState()
     {

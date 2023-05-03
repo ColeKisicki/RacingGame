@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -594,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702958092}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.7, z: -10.02}
+  m_LocalPosition: {x: 0, y: 1.81, z: -9.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,13 +610,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702958092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d31ac0a6bdd468e8018d75dfb1348d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 606546e47c6ba864ab32abf2f57ad5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheel: {fileID: 11400000, guid: e0338d5e29de7794ea63e1d34233cd4a, type: 2}
-  body: {fileID: 11400000, guid: ce5c691c48572304fb85fb51caa09efb, type: 2}
-  engine: {fileID: 11400000, guid: 67dca5645f7ee2844a3066ffe684cb87, type: 2}
   vehiclePrefab: {fileID: 2007157094901461453, guid: 76cf8d119524ec64ca6b972d64307e94, type: 3}
+  testBody: {fileID: 11400000, guid: 1916625e33e083545bca50a57f83ad65, type: 2}
+  testWheel: {fileID: 11400000, guid: e0338d5e29de7794ea63e1d34233cd4a, type: 2}
+  testEngine: {fileID: 11400000, guid: 67dca5645f7ee2844a3066ffe684cb87, type: 2}
+  cameraOffset: {x: 0, y: 5, z: -10}
+  cameraRotation: {x: 0.17364818, y: 0, z: 0, w: 0.9848077}
 --- !u!1001 &1792606232
 PrefabInstance:
   m_ObjectHideFlags: 0
