@@ -8,6 +8,9 @@ public class GameState
     private static GameState _gameStateRef = null;
     public Vehicle _playerVehicleRef = null;
     private RaceController raceController;
+    // Store this value for knowing if we need to take user to leaderboard upon completing race
+    private float worstLeaderboardScore;
+    public LeaderboardData currentLeaderboardEntry = null;
     private GameState()
     {
         
@@ -37,5 +40,16 @@ public class GameState
         }
 
         return _gameStateRef;
+    }
+
+    public RaceController GetRaceController()
+    {
+        return raceController;
+    }
+
+    public class LeaderboardData
+    {
+        public string name;
+        public float time;
     }
 }
