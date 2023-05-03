@@ -48,7 +48,8 @@ public class RaceController : MonoBehaviour
                     enabled = false;
                     Invoke("NavigateToMainMenu", 10f);
                     //OnRaceOver.Invoke("SAM", GetElapsedTime());
-                    GameState.GetGameState().scoresToAddToLeaderboard.Add(new GameState.LeaderboardData { name = "SAM", time = (float)Math.Round(GetElapsedTime(), 2) });
+                    GameState.GetGameState().scoresToAddToLeaderboard.Add(new GameState.LeaderboardData { name = GameState.GetGameState().PlayerName,
+                                                                                                          time = (float)Math.Round(GetElapsedTime(), 2) });
                 }
             }
         }
