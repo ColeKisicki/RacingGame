@@ -8,8 +8,5 @@ public class VehicleWheel : ScriptableObject
     public string wheelName;
     public GameObject wheelPrefab;
     public float brakeTorque;
-    public float radius;
-    public float suspensionDistance;
-    public float middleY;
 
 }

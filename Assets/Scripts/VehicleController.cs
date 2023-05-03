@@ -118,18 +118,20 @@ public class VehicleController : MonoBehaviour
         _vehicle.frontLeftCollider.steerAngle = steerAngle;
         _vehicle.frontRightCollider.steerAngle = steerAngle;
         
-        UpdateWheel(_vehicle.frontLeftCollider, _vehicle.frontRightTransform);
-        UpdateWheel(_vehicle.frontRightCollider, _vehicle.frontLeftTransform);
-        UpdateWheel(_vehicle.rearRightCollider, _vehicle.rearRightTransform);
-        UpdateWheel(_vehicle.rearLeftCollider, _vehicle.rearLeftTransform);
+        UpdateWheel(_vehicle.frontLeftCollider, _vehicle.frontRightTransform, false);
+        UpdateWheel(_vehicle.frontRightCollider, _vehicle.frontLeftTransform, true);
+        UpdateWheel(_vehicle.rearRightCollider, _vehicle.rearRightTransform, true);
+        UpdateWheel(_vehicle.rearLeftCollider, _vehicle.rearLeftTransform, false);
     }
 
-    private void UpdateWheel(WheelCollider col, Transform trans)
+    private void UpdateWheel(WheelCollider col, Transform trans, bool right)
     {
         Vector3 position;
         Quaternion rotation;
         col.GetWorldPose(out position, out rotation);
         trans.position = position;
         trans.rotation = rotation;
+        if(right)
+            trans.Rotate(0,180,0);
     }
 }
