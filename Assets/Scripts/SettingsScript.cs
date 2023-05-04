@@ -8,6 +8,7 @@ public class SettingsScript : MonoBehaviour
 
     private void Start()
     {
+        //updates the difficulty strategy in the game state
         DifficultySlider.onValueChanged.AddListener((float v) => {
             GameState.GetGameState().updateDifficulty((int)v);
         });

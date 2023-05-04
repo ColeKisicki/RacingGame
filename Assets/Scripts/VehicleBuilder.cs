@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+
+//Using builder pattern
 public class VehicleBuilder : MonoBehaviour
 {
     public VehicleWheel wheel = null;
@@ -36,6 +38,7 @@ public class VehicleBuilder : MonoBehaviour
         return this;
     }
     
+    //builds vehicle once all parts have been set
     public Vehicle Build()
     {
         if (wheel == null || body == null || engine == null || vehiclePrefab == null)

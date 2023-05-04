@@ -23,6 +23,8 @@ public class Vehicle : MonoBehaviour
 
     public Rigidbody rbRef;
 
+    
+    //This function sets up the wheel colliders and instantiates the actual vehicle in the world
     private void BuildVehicle()
     {
         // Instantiate body and set weight
@@ -72,6 +74,7 @@ public class Vehicle : MonoBehaviour
 
     }
 
+    //copies all settings from one wheel reference to another
     private void CopyWheelSettingsToNew(WheelCollider referenceCollider, WheelCollider newCollider)
     {
         newCollider.radius = referenceCollider.radius;
@@ -84,6 +87,7 @@ public class Vehicle : MonoBehaviour
         newCollider.sidewaysFriction = referenceCollider.sidewaysFriction;
     }
     
+    //gets the transforms of the wheel sockets of a vehicle
     void GetWheelPositions(GameObject bodyInstance)
     {
         foreach (Transform child in bodyInstance.transform)

@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
 
-using UnityEngine;
-
+//The GameState is a singleton
 public class GameState
 {
 
@@ -26,6 +24,7 @@ public class GameState
         
     }
 
+    //updates the difficulty based on an index (0-easy, 1-medium, 2-hard)
     public void updateDifficulty(int strategyIndex)
     {
         if (strategyIndex == 0)
@@ -34,7 +33,6 @@ public class GameState
             Difficulty = new MediumDifficulty();
         if (strategyIndex == 2)
             Difficulty = new HardDifficulty();
-
     }
 
     public void setRaceController(RaceController rc)
@@ -53,6 +51,8 @@ public class GameState
         return raceController.GetElapsedTime();
     }
     
+    
+    //singleton function to access single game state from anywhere
     public static GameState GetGameState()
     {
         if (_gameStateRef == null)

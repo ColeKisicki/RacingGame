@@ -1,4 +1,6 @@
 ﻿
+//The difficulty uses the strategy pattern
+
 public interface IDifficultyStrategy
 {
     float AdjustMaxSpeed(float maxSpeed);

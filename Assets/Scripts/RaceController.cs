@@ -30,7 +30,8 @@ public class RaceController : MonoBehaviour
         }
         elapsedTime = Time.time - raceStartTime;
     }
-
+    
+    //Updates checkpoint index so that the next checkpoint is active after the previous one has been reached
     public void CheckpointReached(int checkpointIndex)
     {
         Debug.Log("currentCheckpointIndex: " + currentCheckpointIndex);

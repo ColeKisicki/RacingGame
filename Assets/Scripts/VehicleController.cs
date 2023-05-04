@@ -23,24 +23,26 @@ public class VehicleController : MonoBehaviour
     
     //controller uses strategy to dertermine difficulty(max speed)
     private IDifficultyStrategy _difficultyStrategy = new MediumDifficulty();
-
-
-
+    
     private void Awake()
     {
         _wheelsInitailized = false;
         _vehicle = GetComponent<Vehicle>();
-        //subscribing to vehicle built event
+        
+        //subscribing to vehicle built event using observer pattern
         _vehicle.OnVehicleBuilt += OnVehicleBuilt;
         SetDifficultyStrategy(_difficultyStrategy);
     }
     
+    //changes the maximum speed of the vehicle depending on the difficulty
     public void SetDifficultyStrategy(IDifficultyStrategy strategy)
     {
         _difficultyStrategy = strategy;
         maxVelocity = _difficultyStrategy.AdjustMaxSpeed(maxVelocity);
     }
     
+    
+    //runs when same function name on vehicle runs, 
     private void OnVehicleBuilt()
     {
         _wheelsInitailized = true;
@@ -59,6 +61,7 @@ public class VehicleController : MonoBehaviour
     //     }
     // }
 
+    //tick function that gets input from user
     private void FixedUpdate()
     {
         float throttle = Input.GetAxis("Vertical");
@@ -77,6 +80,7 @@ public class VehicleController : MonoBehaviour
         Drive(throttle, steer, brake);
     }
 
+    //This function is where the vehicle is actually moved each frame
     private void Drive(float throttle, float steer, bool brake)
     {
         //add torque to front and back wheels depending on drive type
@@ -87,6 +91,7 @@ public class VehicleController : MonoBehaviour
         ApplySteer(steer);
     }
     
+    //applies the motor torque to wheels depending on drive type of vehicle
     private void ApplyMotorTorque(float input)
     {
         float torque = motorTorque * input;
@@ -103,6 +108,7 @@ public class VehicleController : MonoBehaviour
         }
     }
     
+    //applies brake torque to all wheels
     private void ApplyBrakes(bool brakeInput)
     {
         float brakeForce = brakeInput ? brakeTorque : 0f;
@@ -112,6 +118,7 @@ public class VehicleController : MonoBehaviour
         _vehicle.rearLeftCollider.brakeTorque = brakeForce;
     }
     
+    //steers the vehicle by turning the front two tires
     private void ApplySteer(float input)
     {
         float steerAngle = maxSteerAngle * input;
@@ -124,6 +131,8 @@ public class VehicleController : MonoBehaviour
         UpdateWheel(_vehicle.rearLeftCollider, _vehicle.rearLeftTransform, false);
     }
 
+    //updates the position of the wheel meshes so they rotate in the real world
+    // from https://www.youtube.com/watch?v=QQs9MWLU_tU tutorial
     private void UpdateWheel(WheelCollider col, Transform trans, bool right)
     {
         Vector3 position;

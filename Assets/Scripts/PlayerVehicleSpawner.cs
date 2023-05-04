@@ -12,6 +12,7 @@ public class PlayerVehicleSpawner : MonoBehaviour
     [SerializeField] private Quaternion cameraRotation = Quaternion.Euler(20, 0, 0);
     VehicleBuilder builder;
 
+    //spawns player vehicle at parent location when the race is started
     private void Start()
     {
         builder = this.gameObject.AddComponent<VehicleBuilder>();
@@ -24,6 +25,7 @@ public class PlayerVehicleSpawner : MonoBehaviour
         CreateTestVehicle();
     }
 
+    //function that actually creates the player vehicle
     private void CreateTestVehicle()
     {
         GameObject newCamera = new GameObject("Camera");
@@ -31,7 +33,7 @@ public class PlayerVehicleSpawner : MonoBehaviour
         
         VehicleCameraController cameraController = newCamera.AddComponent<VehicleCameraController>();
         
-        
+        //This is where the builder pattern is used to create the player vehicle
         Vehicle createdVehicle = builder.SetVPrefab(vehiclePrefab).SetWheels(testWheel).SetBody(testBody).SetEngine(testEngine).Build();
         newCamera.transform.position = createdVehicle.transform.position + cameraOffset;
         newCamera.transform.rotation = cameraRotation;

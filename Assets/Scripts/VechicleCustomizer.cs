@@ -23,8 +23,8 @@ public class VechicleCustomizer : MonoBehaviour
     
     private VehicleEngine selectedEngine;
     private int selectedEngineIdx = 0;
-
-
+    
+    //cycles through availible bodies
     public void GetNextBody()
     {
         selectedBodyIdx++;
@@ -42,6 +42,7 @@ public class VechicleCustomizer : MonoBehaviour
         UpdateDisplayCar();
     }
     
+    //cycles through availible wheels
     public void GetNextWheel()
     {
         selectedWheelIdx++;
@@ -59,6 +60,7 @@ public class VechicleCustomizer : MonoBehaviour
         UpdateDisplayCar();
     }
     
+    //cycles through availible engines
     public void GetNextEngine()
     {
         selectedEngineIdx++;
@@ -76,6 +78,7 @@ public class VechicleCustomizer : MonoBehaviour
         UpdateDisplayCar();
     }
 
+    //Updates the display car on the menu with the current body, wheels, and engine by building a new car with those features
     public void UpdateDisplayCar()
     {
         Vehicle createdVehicle = builder.SetVPrefab(vehiclePrefab).SetWheels(selectedWheel).SetBody(selectedBody).SetEngine(selectedEngine).Build();
@@ -94,6 +97,7 @@ public class VechicleCustomizer : MonoBehaviour
         GameState.GetGameState()._playerVehicleRef = createdVehicle;
     }
 
+    //saves selection from menu to gamestate
     public void SaveChangesToState()
     {
         GameState.GetGameState().selectedBody = selectedBody;
